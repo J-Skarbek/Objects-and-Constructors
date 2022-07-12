@@ -1,12 +1,17 @@
-function Book(title, author, pageCount, haveRead) {
-    this.title = title;
-    this.author = author;
-    this.pageCount = pageCount;
-    this.haveRead = haveRead;
-    this.displayInfo = function() {
-        return `${title} by ${author}, ${pageCount} pages. ${haveRead}.`;
-    };
+const myLibrary = [];
 
+function Book(title, author, pageCount, haveRead) {
+  this.title = title
+  this.author = author
+  this.pageCount = pageCount
+  this.haveRead = haveRead
+  this.displayInfo = function() {
+    return `${title} by ${author}, ${pageCount} pages. ${haveRead}.`;
+  }
+}
+
+function addBookToLibrary() {
+  
 };
 
 const JURASSIC_PARK = new Book('Jurassic Park', 'Michael Crichton', '448', 'I have read');
