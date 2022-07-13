@@ -9,21 +9,28 @@
 </head>
 <body>
     <div class="container">
-        <div class="buttons-box"></div>
-        <div class="project-body">
+        <div class="buttons-box"></div>   
+        <div class="sidebar">
+            <div><img src="" alt=""></div>
             <form action="file:///Users/johnskarbek/Desktop/TOP/Objects-and-Constructors/index.html">
-                <input type="text" name="Book Title" id="title">
-                <input type="text" name="Book Author" id="author">
-                <input type="number" name="Page Count" id="pages">
-                <input type="radio" name="Have Read?" id="have-read">
+                <fieldset>
+                    <input type="text" name="Book Title" id="title">
+                    <input type="text" name="Book Author" id="author">
+                    <input type="number" name="Page Count" id="pages">
+                    <input type="checkbox" name="Have Read" id="have-read">
+                    <button type="submit" id="submit-btn">Add Book</button>
+                </fieldset>
             </form>
         </div>
-        
+        <div class="main-content">
+            <div class="top-bar"></div>
+            <div class="books-display"></div>
+        </div>
         <div class="footer">
             <p>Created by John Skarbek</p>
             <p>July 2022</p>
             <p><a href="https://github.com/J-Skarbek">Check out my Github</a></p>
-        </div>
+        </div>          
     </div>
 </body>
 </html>
