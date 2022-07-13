@@ -1,3 +1,14 @@
+const submitBtn = document.getElementById('submit-btn');
+let bookTitle = document.getElementById('title');
+let bookAuthor = document.getElementById('author');
+let bookPages = document.getElementById('pages');
+
+
+submitBtn.addEventListener('click', addBookToLibrary);
+// submitBtn.addEventListener('click', () => {
+//   console.log(newBook);
+// })
+
 const myLibrary = [];
 
 function Book(title, author, pageCount, haveRead) {
@@ -5,20 +16,12 @@ function Book(title, author, pageCount, haveRead) {
   this.author = author
   this.pageCount = pageCount
   this.haveRead = haveRead
-  this.displayInfo = function() {
+  this.displayInfo = () => {
     return `${title} by ${author}, ${pageCount} pages. ${haveRead}.`;
   }
 }
 
 function addBookToLibrary() {
-  
+  let newBook = new Book(bookTitle.value, bookAuthor.value, bookPages.value, 'I have read');
+  myLibrary.push(newBook);
 };
-
-const JURASSIC_PARK = new Book('Jurassic Park', 'Michael Crichton', '448', 'I have read');
-
-const INFINITE_JEST = new Book('Infinite Jest', 'David Foster Wallace', '1,079', 'I have not read');
-
-
-console.log(INFINITE_JEST.displayInfo());
-
-console.log(JURASSIC_PARK.displayInfo());

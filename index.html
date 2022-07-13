@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;600&display=swap" rel="stylesheet">
-    <script src="scripts.js"></script>
+    <script src="scripts.js" defer></script>
     <title>Objects and Constructors</title>
 </head>
 <body>
@@ -18,13 +18,14 @@
         <div class="buttons-box"></div>   
         <div class="sidebar">
             <div><img src="" alt=""></div>
-            <form action="file:///Users/johnskarbek/Desktop/TOP/Objects-and-Constructors/index.html">
+            <form action="file:///Users/johnskarbek/Desktop/TOP/Objects-and-Constructors/index.html" method="post">
                 <fieldset>
-                    <input type="text" name="Book Title" id="title">
-                    <input type="text" name="Book Author" id="author">
-                    <input type="number" name="Page Count" id="pages">
-                    <input type="checkbox" name="Have Read" id="have-read">
-                    <button type="submit" id="submit-btn">Add Book</button>
+                    <input type="text" name="Book_Title" id="title" placeholder="Book Title">
+                    <input type="text" name="Book_Author" id="author" placeholder="Author Name">
+                    <input type="number" name="Page_Count" id="pages" placeholder="Number of Pages">
+                    <input type="checkbox" name="Have_Read" id="have-read">
+                    <label for="Have_read">Have you already read this book?</label>
+                    <button type="button" id="submit-btn">Add Book</button>
                 </fieldset>
             </form>
         </div>
