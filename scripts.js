@@ -5,9 +5,9 @@ const bookPages = document.getElementById('pages');
 const testButton = document.getElementById('test-button');
 
 submitBtn.addEventListener('click', addBookToLibrary);
-testButton.addEventListener('click', () => {
-  myLibrary.forEach(book => console.log(book));
-});
+testButton.addEventListener('click', displayBooks);
+
+
 
 const myLibrary = [];
 
@@ -31,6 +31,6 @@ function addBookToLibrary() {
 
 function displayBooks() {
   myLibrary.forEach(book => {
-    alert(this.title)
+    alert(`${book.title}, ${book.author}, ${book.pageCount}, ${book.haveRead}`)
   });
 }
