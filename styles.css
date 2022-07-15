@@ -68,13 +68,25 @@ th {
     font-family: 'Cormorant', serif;
 }
 
+tbody {
+    width: 100%;
+}
+
 th {
     font-size: 1.5rem;
-    font-weight: 600;;
+    font-weight: 700;
+    padding: 0 20px;
 }
 
 td {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.1rem;
     background-color: var(--light-blue);
+    padding: 5px 20px;
+}
+
+tr {
+    width: 20%;
 }
 
 p,
@@ -110,6 +122,11 @@ span {
     grid-row: 2 / span 9;
     display: flex;
     justify-content: center;
+}
+
+.books-display table {
+    display: flex;
+    align-items: flex-start;
 }
 
 .footer {
