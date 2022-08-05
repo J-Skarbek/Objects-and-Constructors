@@ -50,12 +50,6 @@ function addBookToLibrary() {
 }
 
 // function removeBook() {
-//   const bookRow = document.
-//   const bookRows = Array.from(document.querySelectorAll('[data-index]'))
-//   bookRows.forEach(element => {
-    
-//   });
-
 //   myLibrary.forEach(function(element, index) { 
 //     if (index >= 0) {
 //       console.log('success')
@@ -70,7 +64,10 @@ function addBookToLibrary() {
 //   console.log(removeBookNumber)
 //      // myLibrary.pop(newBook)
 //     // console.log('test removal')
+// }
 
+// function removeBookTest(testRowItem) {
+//   displayTable.removeChild(testRowItem)
 // }
 
 function displayBooks(newBook) {
@@ -82,16 +79,28 @@ function displayBooks(newBook) {
       newRow.innerHTML = 
         `<td>${newBook.title}</td><td>${newBook.author}</td><td>${newBook.pageCount}</td><td>${newBook.readStatusOutput()}</td><td><button class="remove-btn-${indexNum}">Remove</button></td>`;
         console.log(i)
+        const removalBtn = document.querySelector(`.remove-btn-${indexNum}`)
+        const testRowItem = document.getElementById(`index-${indexNum}`)
+        removalBtn.addEventListener('click', () => {
+          displayTable.removeChild(testRowItem)
+        })
+        newRow.dataset.index = indexNum++;
       }
   } else {
-  for (let i = myLibrary.length; i == myLibrary.length; i++) {
-    const tableRow = document.createElement('tr')
-    const newRow = displayTable.appendChild(tableRow)
-    newRow.setAttribute('id', `index-${indexNum}`);
-    newRow.innerHTML = 
-      `<td>${newBook.title}</td><td>${newBook.author}</td><td>${newBook.pageCount}</td><td>${newBook.readStatusOutput()}</td><td><button class="remove-btn-${indexNum}">Remove</button></td>`;
-      console.log(i)
-    }
+    for (let i = myLibrary.length; i == myLibrary.length; i++) {
+      const tableRow = document.createElement('tr')
+      const newRow = displayTable.appendChild(tableRow)
+      newRow.setAttribute('id', `index-${indexNum}`);
+      newRow.innerHTML = 
+        `<td>${newBook.title}</td><td>${newBook.author}</td><td>${newBook.pageCount}</td><td>${newBook.readStatusOutput()}</td><td><button class="remove-btn-${indexNum}">Remove</button></td>`;
+        console.log(i)
+        const removalBtn = document.querySelector(`.remove-btn-${indexNum}`)
+        const testRowItem = document.getElementById(`index-${indexNum}`)
+        removalBtn.addEventListener('click', () => {
+          displayTable.removeChild(testRowItem)
+        })
+        newRow.dataset.index = indexNum++;
+      }
   }
 }
 
