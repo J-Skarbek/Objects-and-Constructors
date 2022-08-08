@@ -13,38 +13,42 @@ const myLibrary = [];
 
 submitBtn.addEventListener('click', addBookToLibrary);
 
-function Book(title, author, pageCount, readStatus, indexNum) {
+function Book(title, author, pageCount, readStatus) {
   this.title = title;
   this.author = author;
   this.pageCount = pageCount;
   this.readStatus = readStatus;
-  this.bookReferenceNumber = indexNum;
   this.readStatusOutput = function() {
     return (this.readStatus === true ? `I have read ${this.title}.` : `I have not read ${this.title}.`)
   };
 }
 
 function addBookToLibrary() {
-  const newBook = new Book(bookTitle.value, bookAuthor.value, bookPages.value, haveRead.checked, indexNum)
+  const newBook = new Book(bookTitle.value, bookAuthor.value, bookPages.value, haveRead.checked)
   myLibrary.push(newBook)
   handleBookDisplay(newBook)
-  let tempBookReference = bookTitle.value 
   bookTitle.value = ''
   bookAuthor.value = ''
   bookPages.value = ''
   haveRead.checked = false
-  console.log(tempBookReference)
 }
 
-function bookRemovalOperatives(newBook) {
+function bookRemovalOperatives() {
   const removalBtn = document.querySelector(`.remove-btn-${indexNum}`)
   const removeRow = document.getElementById(`index-${indexNum}`)
   removalBtn.addEventListener('click', () => {
     displayTable.removeChild(removeRow)
+    myLibrary.splice(`${removeRow.dataset.index}`, 1)
     resetDomIndexCounter()
-      let test = removeRow.dataset.index
-      myLibrary.splice(`${test}`, 1)
-      console.log(`This is the test value: ${test}.`)
+    // myLibrary.splice(`${removeRow.dataset.index}`, 1)
+  })
+}
+
+function resetDomIndexCounter() {
+  indexNum = 0;
+  let domElementsValues = Array.from(document.getElementsByClassName('books-in-dom'))
+    domElementsValues.forEach(domElement => {
+      domElement.dataset.index = indexNum++
   })
 }
 
@@ -69,24 +73,4 @@ function handleBookDisplay(newBook) {
       createNewTableRow(newBook)
     }
   }
-}
-
-// myLibarary.forEach(bookElement => {
-  
-// });
-
-// get the dom reference 
-
-// run function to test each item in array to see if dom-reference number matches the array index value
-
-// if true -> remove/slice/pop that item from the array
-
-// run a loop through existing dom customElements, and for each one then re-assign the indexNum value
-
-function resetDomIndexCounter() {
-  indexNum = 0;
-  let domElementsValues = Array.from(document.getElementsByClassName('books-in-dom'))
-    domElementsValues.forEach(domElement => {
-      domElement.dataset.index = indexNum++
-  })
 }
