@@ -7,12 +7,7 @@ const testButton = document.getElementById('test-button');
 
 const displayTable = document.getElementById('books-table');
 
-const tableRow = document.createElement('tr')
-const newRow = displayTable.appendChild(tableRow)
-
 let indexNum = 0
-
-let testNumb
 
 const myLibrary = [];
 
@@ -31,14 +26,15 @@ function Book(title, author, pageCount, readStatus) {
 function addBookToLibrary() {
   const newBook = new Book(bookTitle.value, bookAuthor.value, bookPages.value, haveRead.checked)
   myLibrary.push(newBook)
-  displayBooks(newBook) 
+  handleBookDisplay(newBook) 
   bookTitle.value = ''
   bookAuthor.value = ''
   bookPages.value = ''
   haveRead.checked = false
 }
 
-function displayBooks(newBook) {
+
+function handleBookDisplay(newBook) {
   if (myLibrary.length === 1) {
     for (let i = 0; i < myLibrary.length; i++) {
       const tableRow = document.createElement('tr')
@@ -48,9 +44,9 @@ function displayBooks(newBook) {
         `<td>${newBook.title}</td><td>${newBook.author}</td><td>${newBook.pageCount}</td><td>${newBook.readStatusOutput()}</td><td><button class="remove-btn-${indexNum}">Remove</button></td>`;
       console.log(i)
       const removalBtn = document.querySelector(`.remove-btn-${indexNum}`)
-      const testRowItem = document.getElementById(`index-${indexNum}`)
+      const removeRow = document.getElementById(`index-${indexNum}`)
       removalBtn.addEventListener('click', () => {
-        displayTable.removeChild(testRowItem)
+        displayTable.removeChild(removeRow)
       })
       newRow.dataset.index = indexNum++;
     }
@@ -63,9 +59,9 @@ function displayBooks(newBook) {
         `<td>${newBook.title}</td><td>${newBook.author}</td><td>${newBook.pageCount}</td><td>${newBook.readStatusOutput()}</td><td><button class="remove-btn-${indexNum}">Remove</button></td>`;
       console.log(i)
       const removalBtn = document.querySelector(`.remove-btn-${indexNum}`)
-      const testRowItem = document.getElementById(`index-${indexNum}`)
+      const removeRow = document.getElementById(`index-${indexNum}`)
       removalBtn.addEventListener('click', () => {
-        displayTable.removeChild(testRowItem)
+        displayTable.removeChild(removeRow)
       })
       newRow.dataset.index = indexNum++;
     }
