@@ -40,7 +40,6 @@ function bookRemovalOperatives() {
     displayTable.removeChild(removeRow)
     myLibrary.splice(`${removeRow.dataset.index}`, 1)
     resetDomIndexCounter()
-    // myLibrary.splice(`${removeRow.dataset.index}`, 1)
   })
 }
 
