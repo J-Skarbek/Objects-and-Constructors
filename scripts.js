@@ -18,16 +18,6 @@ const myLibrary = [];
 
 submitBtn.addEventListener('click', addBookToLibrary);
 
-function addRemoveBtnListener() {
-  const removeButtons = Array.from(document.getElementsByClassName('remove-btn'));
-  removeButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      removeBook()
-      console.log('test')
-    })
-  })
-}
-
 function Book(title, author, pageCount, readStatus) {
   this.title = title;
   this.author = author;
@@ -42,33 +32,11 @@ function addBookToLibrary() {
   const newBook = new Book(bookTitle.value, bookAuthor.value, bookPages.value, haveRead.checked)
   myLibrary.push(newBook)
   displayBooks(newBook) 
-  addRemoveBtnListener()
   bookTitle.value = ''
   bookAuthor.value = ''
   bookPages.value = ''
   haveRead.checked = false
 }
-
-// function removeBook() {
-//   myLibrary.forEach(function(element, index) { 
-//     if (index >= 0) {
-//       console.log('success')
-//       let indexValue = index
-//       if (indexValue === dataset.index)
-//     } else {
-//       console.log('whatever')
-//     }
-//   })
-
-//   console.log(getRow)
-//   console.log(removeBookNumber)
-//      // myLibrary.pop(newBook)
-//     // console.log('test removal')
-// }
-
-// function removeBookTest(testRowItem) {
-//   displayTable.removeChild(testRowItem)
-// }
 
 function displayBooks(newBook) {
   if (myLibrary.length === 1) {
@@ -78,14 +46,14 @@ function displayBooks(newBook) {
       newRow.setAttribute('id', `index-${indexNum}`);
       newRow.innerHTML = 
         `<td>${newBook.title}</td><td>${newBook.author}</td><td>${newBook.pageCount}</td><td>${newBook.readStatusOutput()}</td><td><button class="remove-btn-${indexNum}">Remove</button></td>`;
-        console.log(i)
-        const removalBtn = document.querySelector(`.remove-btn-${indexNum}`)
-        const testRowItem = document.getElementById(`index-${indexNum}`)
-        removalBtn.addEventListener('click', () => {
-          displayTable.removeChild(testRowItem)
-        })
-        newRow.dataset.index = indexNum++;
-      }
+      console.log(i)
+      const removalBtn = document.querySelector(`.remove-btn-${indexNum}`)
+      const testRowItem = document.getElementById(`index-${indexNum}`)
+      removalBtn.addEventListener('click', () => {
+        displayTable.removeChild(testRowItem)
+      })
+      newRow.dataset.index = indexNum++;
+    }
   } else {
     for (let i = myLibrary.length; i == myLibrary.length; i++) {
       const tableRow = document.createElement('tr')
@@ -93,24 +61,13 @@ function displayBooks(newBook) {
       newRow.setAttribute('id', `index-${indexNum}`);
       newRow.innerHTML = 
         `<td>${newBook.title}</td><td>${newBook.author}</td><td>${newBook.pageCount}</td><td>${newBook.readStatusOutput()}</td><td><button class="remove-btn-${indexNum}">Remove</button></td>`;
-        console.log(i)
-        const removalBtn = document.querySelector(`.remove-btn-${indexNum}`)
-        const testRowItem = document.getElementById(`index-${indexNum}`)
-        removalBtn.addEventListener('click', () => {
-          displayTable.removeChild(testRowItem)
-        })
-        newRow.dataset.index = indexNum++;
-      }
+      console.log(i)
+      const removalBtn = document.querySelector(`.remove-btn-${indexNum}`)
+      const testRowItem = document.getElementById(`index-${indexNum}`)
+      removalBtn.addEventListener('click', () => {
+        displayTable.removeChild(testRowItem)
+      })
+      newRow.dataset.index = indexNum++;
+    }
   }
 }
-
-// function displayBook(newBook) {
-//   const tableRow = document.createElement('tr')
-//   const newRow = displayTable.appendChild(tableRow)
-//   // newRow.setAttribute('id', indexNum);
-//   newRow.setAttribute('id', `index-${indexNum}`);
-//   // newRow.dataset.index = indexNum++;
-//   newRow.innerHTML = 
-//     `<td>${newBook.title}</td><td>${newBook.author}</td><td>${newBook.pageCount}</td><td>${newBook.readStatusOutput()}</td><td><button class="remove-btn-${indexNum}">Remove</button></td>`;
-//   newRow.dataset.index = indexNum++;
-// }
