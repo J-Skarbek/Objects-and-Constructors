@@ -33,7 +33,7 @@ function addBookToLibrary() {
   haveRead.checked = false
 }
 
-function removeBookFromLibrary(newBook) {
+function bookRemovalOperatives(newBook) {
   const removalBtn = document.querySelector(`.remove-btn-${indexNum}`)
     const removeRow = document.getElementById(`index-${indexNum}`)
     removalBtn.addEventListener('click', () => {
@@ -42,37 +42,25 @@ function removeBookFromLibrary(newBook) {
     })
 }
 
-function createNewTableRow() {
+function createNewTableRow(newBook) {
   const tableRow = document.createElement('tr')
     const newRow = displayTable.appendChild(tableRow)
     newRow.setAttribute('id', `index-${indexNum}`)
     newRow.innerHTML = 
       `<td>${newBook.title}</td><td>${newBook.author}</td><td>${newBook.pageCount}</td><td>${newBook.readStatusOutput()}</td><td><button class="remove-btn-${indexNum}">Remove</button></td>`;
+    bookRemovalOperatives(newBook)
+    newRow.dataset.index = indexNum++
 }
 
 
 function handleBookDisplay(newBook) {
   if (myLibrary.length === 1) {
     for (let i = 0; i < myLibrary.length; i++) {
-      const tableRow = document.createElement('tr')
-      const newRow = displayTable.appendChild(tableRow)
-      newRow.setAttribute('id', `index-${indexNum}`)
-      newRow.innerHTML = 
-        `<td>${newBook.title}</td><td>${newBook.author}</td><td>${newBook.pageCount}</td><td>${newBook.readStatusOutput()}</td><td><button class="remove-btn-${indexNum}">Remove</button></td>`;
-      console.log(i)
-      removeBookFromLibrary()
-      newRow.dataset.index = indexNum++
+      createNewTableRow(newBook)
     }
   } else {
     for (let i = myLibrary.length; i == myLibrary.length; i++) {
-      const tableRow = document.createElement('tr')
-      const newRow = displayTable.appendChild(tableRow)
-      newRow.setAttribute('id', `index-${indexNum}`)
-      newRow.innerHTML = 
-        `<td>${newBook.title}</td><td>${newBook.author}</td><td>${newBook.pageCount}</td><td>${newBook.readStatusOutput()}</td><td><button class="remove-btn-${indexNum}">Remove</button></td>`;
-      console.log(i)
-      removeBookFromLibrary()
-      newRow.dataset.index = indexNum++
+      createNewTableRow(newBook)
     }
   }
 }
