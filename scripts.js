@@ -24,13 +24,17 @@ function Book(title, author, pageCount, readStatus) {
 }
 
 function addBookToLibrary() {
-  const newBook = new Book(bookTitle.value, bookAuthor.value, bookPages.value, haveRead.checked)
-  myLibrary.push(newBook)
-  handleBookDisplay(newBook)
-  bookTitle.value = ''
-  bookAuthor.value = ''
-  bookPages.value = ''
-  haveRead.checked = false
+  if (bookTitle.value === '' || bookAuthor.value === '' || bookPages.value ==='') {
+    alert("You haven't added any book details!")
+  } else {
+    const newBook = new Book(bookTitle.value, bookAuthor.value, bookPages.value, haveRead.checked)
+    myLibrary.push(newBook)
+    handleBookDisplay(newBook)
+    bookTitle.value = ''
+    bookAuthor.value = ''
+    bookPages.value = ''
+    haveRead.checked = false
+  }
 }
 
 function bookRemovalOperatives() {
