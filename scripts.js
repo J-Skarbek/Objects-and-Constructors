@@ -57,7 +57,7 @@ function createNewTableRow(newBook) {
     newRow.setAttribute('id', `index-${indexNum}`)
     newRow.setAttribute('class', 'books-in-dom')
     newRow.innerHTML = 
-      `<td>${newBook.title}</td><td>${newBook.author}</td><td>${newBook.pageCount}</td><td>${newBook.readStatusOutput()}</td><button type="button" name="Updated_Read_Status" id="update-status">I have read ${newBook.title}</button><td><button class="remove-btn-${indexNum}">Remove</button></td>`;
+      `<td>${newBook.title}</td><td>${newBook.author}</td><td>${newBook.pageCount}</td><td>${newBook.readStatusOutput()}</td><!--<button type="button" name="Updated_Read_Status" id="update-status">I have read ${newBook.title}</button>--><td><button class="remove-btn-${indexNum}">Remove</button></td>`;
     bookRemovalOperatives(newBook)
     // updateReadStatus(newBook)
     newRow.dataset.index = indexNum++

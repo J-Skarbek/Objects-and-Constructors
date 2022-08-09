@@ -17,20 +17,20 @@
     <div class="container">
         <div class="buttons-box"></div>   
         <div class="sidebar">
-            <div><img src="" alt=""></div>
-            <form action="file:///Users/johnskarbek/Desktop/TOP/Objects-and-Constructors/index.html" method="post">
-                <fieldset>
-                    <input type="text" name="Book_Title" id="title" placeholder="Book Title">
-                    <input type="text" name="Book_Author" id="author" placeholder="Author Name">
-                    <input type="number" name="Page_Count" id="pages" placeholder="Number of Pages">
-                    <input type="checkbox" name="Have_Read" id="have-read">
-                    <label for="Have_read">Have you already read this book?</label>
-                    <button type="button" id="submit-btn">Add Book</button>
-                </fieldset>
-            </form>
-            <div class="test-button">
+            <div class="logo-area"><img class="library-logo" src="./images/1528307732.svg" alt="My Library App Logo"><h1>Store<br>Your<br>Books</h1></div>
+                <form class="book-input-form" action="file:///Users/johnskarbek/Desktop/TOP/Objects-and-Constructors/index.html" method="post">
+                    <fieldset>
+                        <input type="text" name="Book_Title" id="title" placeholder="Book Title">
+                        <input type="text" name="Book_Author" id="author" placeholder="Author Name">
+                        <input type="number" name="Page_Count" id="pages" placeholder="Number of Pages">
+                        <input type="checkbox" name="Have_Read" id="have-read">
+                        <label for="Have_read">Have you already read this book?</label>
+                        <button type="button" id="submit-btn">Add Book</button>
+                    </fieldset>
+                </form>
+            <!-- <div class="test-button">
                 <button id="test-button">Test Button</button>
-            </div>
+            </div> -->
         </div>
         <div class="main-content">
             <div class="top-bar"></div>
@@ -42,7 +42,7 @@
                             <th scope="col">Author</th>
                             <th scope="col">Number of Pages</th>
                             <th scope="col">Book Read?</th>
-                            <th scope="col">Update Read Status</th>
+                            <!-- <th scope="col">Update Read Status</th> -->
                             <th scope="col">Remove</th>
                         </tr>
                     </tbody>
