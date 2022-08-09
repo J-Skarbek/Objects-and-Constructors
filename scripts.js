@@ -57,8 +57,9 @@ function createNewTableRow(newBook) {
     newRow.setAttribute('id', `index-${indexNum}`)
     newRow.setAttribute('class', 'books-in-dom')
     newRow.innerHTML = 
-      `<td>${newBook.title}</td><td>${newBook.author}</td><td>${newBook.pageCount}</td><td>${newBook.readStatusOutput()}</td><td><button class="remove-btn-${indexNum}">Remove</button></td>`;
+      `<td>${newBook.title}</td><td>${newBook.author}</td><td>${newBook.pageCount}</td><td>${newBook.readStatusOutput()}</td><button type="button" name="Updated_Read_Status" id="update-status">I have read ${newBook.title}</button><td><button class="remove-btn-${indexNum}">Remove</button></td>`;
     bookRemovalOperatives(newBook)
+    // updateReadStatus(newBook)
     newRow.dataset.index = indexNum++
 }
 
@@ -73,3 +74,16 @@ function handleBookDisplay(newBook) {
     }
   }
 }
+
+// function updateReadStatus(newBook) {
+//   let getReadStatus = newBook.readStatus
+//   console.log(getReadStatus)
+//   let updateBtn = document.getElementById('update-status')
+//   updateBtn.addEventListener('click', () => {
+//     if (getReadStatus === false) {
+//       newBook.readStatus === true
+//     } else {
+//       console.log(`updated get-read status is ${getReadStatus}`)
+//     }
+//   })
+// }
