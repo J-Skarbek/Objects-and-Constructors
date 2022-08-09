@@ -23,8 +23,10 @@
                         <input type="text" name="Book_Title" id="title" placeholder="Book Title">
                         <input type="text" name="Book_Author" id="author" placeholder="Author Name">
                         <input type="number" name="Page_Count" id="pages" placeholder="Number of Pages">
-                        <input type="checkbox" name="Have_Read" id="have-read">
-                        <label for="Have_read">Have you already read this book?</label>
+                        <div class="read-checkbox">
+                            <label for="have-read">Have you already read this book?</label>
+                            <input type="checkbox" name="Have_Read" id="have-read">
+                        </div>
                         <button type="button" id="submit-btn">Add Book</button>
                     </fieldset>
                 </form>
