@@ -13,14 +13,26 @@ const myLibrary = [];
 
 submitBtn.addEventListener('click', addBookToLibrary);
 
-function Book(title, author, pageCount, readStatus) {
-  this.title = title;
-  this.author = author;
-  this.pageCount = pageCount;
-  this.readStatus = readStatus;
-  this.readStatusOutput = function() {
-    return (this.readStatus === true ? `I have read ${this.title}.` : `I have not read ${this.title}.`)
-  };
+// function Book(title, author, pageCount, readStatus) {
+//   this.title = title;
+//   this.author = author;
+//   this.pageCount = pageCount;
+//   this.readStatus = readStatus;
+//   this.readStatusOutput = function() {
+//     return (this.readStatus === true ? `I have read ${this.title}.` : `I have not read ${this.title}.`)
+//   };
+// }
+
+class Book {
+  constructor(title, author, pageCount, readStatus) {
+    this.title = title;
+    this.author = author;
+    this.pageCount = pageCount;
+    this.readStatus = readStatus;
+    this.readStatusOutput = function() {
+        return (this.readStatus === true ? `I have read ${this.title}.` : `I have not read ${this.title}.`)
+    };
+  }
 }
 
 function addBookToLibrary() {
