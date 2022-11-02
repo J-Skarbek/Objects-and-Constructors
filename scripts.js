@@ -36,9 +36,6 @@ class Book {
 }
 
 function addBookToLibrary() {
-  if (bookTitle.value === '' || bookAuthor.value === '' || bookPages.value ==='') {
-    alert("You haven't added any book details!")
-  } else {
     const newBook = new Book(bookTitle.value, bookAuthor.value, bookPages.value, haveRead.checked)
     myLibrary.push(newBook)
     handleBookDisplay(newBook)
@@ -46,8 +43,8 @@ function addBookToLibrary() {
     bookAuthor.value = ''
     bookPages.value = ''
     haveRead.checked = false
-  }
 }
+
 
 function bookRemovalOperatives() {
   const removalBtn = document.querySelector(`.remove-btn-${indexNum}`)
@@ -91,6 +88,7 @@ function handleBookDisplay(newBook) {
   }
 }
 
+
 // function updateReadStatus(newBook) {
 //   let getReadStatus = newBook.readStatus
 //   console.log(getReadStatus)
@@ -103,3 +101,18 @@ function handleBookDisplay(newBook) {
 //     }
 //   })
 // }
+
+// Form validations
+
+bookTitle.addEventListener('input', () => {
+  bookTitle.setCustomValidity('');
+  bookTitle.checkValidity();
+});
+
+bookTitle.addEventListener('invalid', () => {
+  if (bookTitle.value === '') {
+    bookTitle.setCustomValidity('Please enter the title of the book.');
+  } else {
+    bookTitle.setCustomValidity('Book titles cannot be like that!')
+  };
+});
