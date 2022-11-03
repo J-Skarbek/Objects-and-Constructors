@@ -1,3 +1,5 @@
+const form = document.querySelector('.book-input-form');
+const pagesError = document.querySelector('#pages + span.pagesError');
 const submitBtn = document.getElementById('submit-btn');
 const bookTitle = document.getElementById('title');
 const bookAuthor = document.getElementById('author');
@@ -104,15 +106,47 @@ function handleBookDisplay(newBook) {
 
 // Form validations
 
-bookTitle.addEventListener('input', () => {
-  bookTitle.setCustomValidity('');
-  bookTitle.checkValidity();
-});
+form.addEventListener('submmit', (e) => {
+  if (!bookPages.validity.valid) {
+    showError();
+    e.preventDefault();
+  }
+})
 
-bookTitle.addEventListener('invalid', () => {
-  if (bookTitle.value === '') {
-    bookTitle.setCustomValidity('Please enter the title of the book.');
-  } else {
-    bookTitle.setCustomValidity('Book titles cannot be like that!')
-  };
-});
+function showError() {
+  if (bookPages.validity.valueMissing) {
+    pagesError.textContent = 'You need to enter the number of pages in the book.';
+  } else if (!pagesError.validity.valid) {
+    pagesError.textContent = 'You need to enter the number of pages as a number.';
+  }
+}
+
+// submitBtn.addEventListener('input', (e) => {
+//   submitBtn.setCustomValidity('');
+//   submitBtn.checkValidity();
+// });
+
+// submitBtn.addEventListener('invalid', (e) => {
+//   if (submitBtn.value === '') {
+//     submitBtn.setCustomValidity('Please complete the form.');
+//     e.preventDefault();
+//   } else {
+//     submitBtn.setCustomValidity('The form has not been filled out completely.')
+//     e.preventDefault();
+//   };
+// });
+
+// bookTitle.addEventListener('input', (e) => {
+//   bookTitle.setCustomValidity('');
+//   bookTitle.checkValidity();
+// });
+
+// bookTitle.addEventListener('invalid', (e) => {
+//   if (bookTitle.value === '') {
+//     bookTitle.setCustomValidity('Please enter the title of the book.');
+//     e.preventDefault();
+//   } else {
+//     bookTitle.setCustomValidity('Book titles cannot be like that!')
+//     e.preventDefault();
+//   };
+// });
