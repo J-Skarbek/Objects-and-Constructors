@@ -186,7 +186,7 @@ span {
 
 /* Form validation CSS*/
 
-input[type="text"] {
+input[type="number"] {
     appearance: none;
   
     width: 100%;

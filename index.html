@@ -22,7 +22,7 @@
                         <input type="text" name="Book_Title" id="title" placeholder="Book Title">
                         <span class="error" aria-live="polite"></span>
                         <input type="text" name="Book_Author" id="author" placeholder="Author Name">
-                        <input type="number" name="Page_Count" id="pages" placeholder="Number of Pages" pattern="([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])">
+                        <input type="number" name="Page_Count" id="pages" placeholder="Number of Pages" min="1" max="200" required>
                         <span class="pagesError"></span>
                         <div class="read-checkbox">
                             <label for="have-read">Have you already read this book?</label>
