@@ -19,14 +19,14 @@
         <div class="sidebar">
             <div class="logo-area"><img class="library-logo" src="./images/1528307732.svg" alt="My Library App Logo"><h1>Store<br>Your<br>Books</h1></div>
                 <form novalidate class="book-input-form" action="file:///Users/johnskarbek/Desktop/TOP/Objects-and-Constructors/index.html" method="post">        
-                        <input type="text" name="Book_Title" id="title" placeholder="Book Title">
+                        <input type="text" name="Book_Title" id="title" placeholder="Book Title" minlength="1" maxlength="150" required>
                         <span class="error" aria-live="polite"></span>
-                        <input type="text" name="Book_Author" id="author" placeholder="Author Name">
-                        <input type="number" name="Page_Count" id="pages" placeholder="Number of Pages" min="1" max="200" required>
+                        <input type="text" name="Book_Author" id="author" placeholder="Author Name" minlength="1" maxlength="150" required>
+                        <input type="number" name="Page_Count" id="pages" placeholder="Number of Pages" min="1" max="20000" required>
                         <span class="pagesError"></span>
                         <div class="read-checkbox">
                             <label for="have-read">Have you already read this book?</label>
-                            <input type="checkbox" name="Have_Read" id="have-read">
+                            <input type="checkbox" name="Have_Read" id="have-read" required>
                         </div>
                         <button type="button" id="submit-btn">Add Book</button>
                         <span class="error" aria-live="polite"></span>

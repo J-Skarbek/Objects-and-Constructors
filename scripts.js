@@ -38,7 +38,7 @@ class Book {
 }
 
 function addBookToLibrary(e) {
-  if (!bookPages.validity.valid) {
+  if ((!bookPages.validity.valid) || (!bookAuthor.validity.valid) || (!bookTitle.validity.valid)) {
     showError();
     e.preventDefault();
     console.log(bookPages.validity);
@@ -122,10 +122,27 @@ function handleBookDisplay(newBook) {
 //   }
 // }
 
+// function validityCheck() {
+
+// }
+
 function showError() {
   if (bookPages.validity.valueMissing) {
     pagesError.textContent = 'You need to enter the number of pages in the book.';
   } else if (bookPages.validity.valid === false) {
-    pagesError.textContent = 'You need to enter the number of pages as a number.';
+    pagesError.textContent = 'The number of pages should be between 1 and 20,000.';
   }
+
+  if (bookAuthor.validity.valueMissing) {
+    pagesError.textContent = "You forgot to enter the author's name.";
+  } else if (!bookAuthor.validity.valid) {
+    pagesError.textContent = 'This field should be between 1 and 150 characters long.';
+  }
+
+  if (bookTitle.validity.valueMissing) {
+    pagesError.textContent = "You forgot to enter the book's title.";
+  } else if (!bookTitle.validity.valid) {
+    pagesError.textContent = 'This field should be between 1 and 150 characters long.';
+  }
+  
 }
