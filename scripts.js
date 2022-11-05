@@ -15,16 +15,6 @@ const myLibrary = [];
 
 submitBtn.addEventListener('click', addBookToLibrary);
 
-// function Book(title, author, pageCount, readStatus) {
-//   this.title = title;
-//   this.author = author;
-//   this.pageCount = pageCount;
-//   this.readStatus = readStatus;
-//   this.readStatusOutput = function() {
-//     return (this.readStatus === true ? `I have read ${this.title}.` : `I have not read ${this.title}.`)
-//   };
-// }
-
 class Book {
   constructor(title, author, pageCount, readStatus) {
     this.title = title;
@@ -52,7 +42,6 @@ function addBookToLibrary(e) {
     haveRead.checked = false
   }
 }
-
 
 function bookRemovalOperatives() {
   const removalBtn = document.querySelector(`.remove-btn-${indexNum}`)
@@ -96,40 +85,24 @@ function handleBookDisplay(newBook) {
   }
 }
 
-
-// function updateReadStatus(newBook) {
-//   let getReadStatus = newBook.readStatus
-//   console.log(getReadStatus)
-//   let updateBtn = document.getElementById('update-status')
-//   updateBtn.addEventListener('click', () => {
-//     if (getReadStatus === false) {
-//       newBook.readStatus === true
-//     } else {
-//       console.log(`updated get-read status is ${getReadStatus}`)
-//     }
-//   })
-// }
-
 // Form validations
 
-// submitBtn.addEventListener('click', checkStatus)
-
-// function checkStatus(e) {
-//   if ((!bookPages.validity) || (bookPages.valueMissing)) {
-//     showError();
-//     e.preventDefault();
-//     console.log(bookPages.validity);
-//   }
-// }
-
-// function validityCheck() {
-
-// }
-
 function showError() {
+
+  // const inputErrors = {
+  //   pagesMissing:'You need to enter the number of pages in the book.',
+  //   pagesRangeError:'The number of pages should be between 1 and 20,000.',
+  //   authorMissing: "You forgot to enter the author's name.",
+  //   authorInvalid: 'This field should be between 1 and 150 characters long.',
+  //   titleMissing: "You forgot to enter the book's title.",
+  //   titleInvalid: 'This field should be between 1 and 150 characters long.',
+  // };
+
+  // console.table(inputErrors)
+
   if (bookPages.validity.valueMissing) {
     pagesError.textContent = 'You need to enter the number of pages in the book.';
-  } else if (bookPages.validity.valid === false) {
+  } else if (!bookPages.validity.valid) {
     pagesError.textContent = 'The number of pages should be between 1 and 20,000.';
   }
 
@@ -144,5 +117,4 @@ function showError() {
   } else if (!bookTitle.validity.valid) {
     pagesError.textContent = 'This field should be between 1 and 150 characters long.';
   }
-  
 }
